@@ -1,40 +1,40 @@
 
 import { FastifyRequest, FastifyReply, } from "fastify";
 
-export abstract class BaseController {
-  public static send_response (res: FastifyReply, code: number, message: string) {
+export default abstract class BaseController {
+  public static send_response (res: any, code: number, message: string) {
     return res.status(code).send({msg: message});
   }
 
-  public client_error (res: FastifyReply, message?: string) {
+  public static client_error (res: any, message?: string) {
     return BaseController.send_response(res, 400, message ? message : "Client Error");
   }
 
-  public unauthorized (res: FastifyReply, message?: string) {
+  public static unauthorized (res: any, message?: string) {
     return BaseController.send_response(res, 401, message ? message : "Unauthorized");
   }
 
-  public payment_required (res: FastifyReply, message?: string) {
+  public static payment_required (res: any, message?: string) {
     return BaseController.send_response(res, 402, message ? message : "Payment Required");
   }
 
-  public forbidden (res: FastifyReply, message?: string) {
+  public static forbidden (res: any, message?: string) {
     return BaseController.send_response(res, 403, message ? message : "Forbidden");
   }
 
-  public not_found (res: FastifyReply, message?: string) {
+  public static not_found (res: any, message?: string) {
     return BaseController.send_response(res, 404, message ? message : "Not Found");
   }
 
-  public conflict (res: FastifyReply, message?: string) {
+  public static conflict (res: any, message?: string) {
     return BaseController.send_response(res, 409, message ? message : "Forbidden");
   }
 
-  public too_many (res: FastifyReply, message?: string) {
+  public static too_many (res: any, message?: string) {
     return BaseController.send_response(res, 429, message ? message : "Too Many Requests");
   }
 
-  public fail (res: FastifyReply, message?: string) {
+  public static fail (res: any, message?: string) {
     return BaseController.send_response(res, 500, message ? message.toString() : "Server Failed");
   }
 }

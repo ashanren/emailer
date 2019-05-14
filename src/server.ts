@@ -8,7 +8,8 @@ const port    = process.env.PORT || require('config/config').port;
 const start = async () => {
   try {
     const app: fastify.FastifyInstance<Server, IncomingMessage, ServerResponse> = fastify({});
-    routes(app);
+    app.register(routes);
+    //routes(app);
     app.listen(port, '0.0.0.0');
     log.info(`Email Server Started - Listening on port: ${port}`);
   } catch (err) {

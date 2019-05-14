@@ -1,11 +1,4 @@
 
-export const ui = {
-  host  : 'http',
-  ip    : '0.0.0.0',
-  port  : 8000,
-  path  : '/billing/therapists/'
-};
-
 export const port  = 8500;
 
 export const EMAIL_SETTINGS = {
@@ -15,7 +8,7 @@ export const EMAIL_SETTINGS = {
   tls   : {ciphers : 'SSLv3'},
   auth  : {
     user  : 'alert@talkpathlive.com',//username
-    pass  : '$erv3rA!ert$',//password
+    pass  : 'hifgix-1zofqo-jTpay1',//password
   },
   pool: true,
   maxConnections: 3
