@@ -1,7 +1,7 @@
 
-import { log } from "config/logging";
-import { transporter as transport } from "config/nodemailer";
-import { EMAIL_SETTINGS as mailConfig } from "config/config";
+import { log } from "./../config/logging";
+import { transporter as transport } from "./../config/nodemailer";
+import { EMAIL_SETTINGS as mailConfig } from "./../config/config";
 
 export default class MailService {
   public static async send_email (body: mailOptions) {
@@ -10,10 +10,15 @@ export default class MailService {
       log.trace("Sending Email", body);
       const result  = await transport.sendMail(body);
       log.debug("Email result", result);
+      return true;
+      /*
+      if (result.) {
+      }
+       */
     } catch (err) {
       log.error("Error Sending Email", err);
+      return false;
     }
-    return "ok then";
   }
 }
 

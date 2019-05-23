@@ -1,9 +1,9 @@
 
 import * as fastify from "fastify";
-import routes from "routes";
-import { log } from "config/logging";
+import routes from "./routes";
+import { log } from "./config/logging";
 import { Server, IncomingMessage, ServerResponse } from "http";
-const port    = process.env.PORT || require('config/config').port;
+const port    = process.env.PORT || require('./config/config').port;
 
 const start = async () => {
   try {

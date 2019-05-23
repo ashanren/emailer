@@ -1,7 +1,7 @@
 
-import { log } from "config/logging";
-import BaseController from "controllers/BaseController";
-import MailService from "services/MailService"
+import { log } from "./../config/logging";
+import BaseController from "./BaseController";
+import MailService from "./../services/MailService"
 
 export default class MailController extends BaseController {
   constructor() {
@@ -10,12 +10,12 @@ export default class MailController extends BaseController {
   }
 
   public static async send_mail(req: any, res: any) {
-    const result: string = await MailService.send_email(req.body);
-    super.unauthorized(res, "THIS WILL BE FINE");
-    /*
-    if (MailService.) {
+    log.info("attempting to send message");
+    //const result: boolean = await MailService.send_email(req.body);
+    if (!await MailService.send_email(req.body)) {
+      super.unauthorized(res, "Failed to send Email");
     }
-     */
+    super.send_response(res, 200, "Successfully Sent");
   }
 }
 

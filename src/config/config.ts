@@ -1,5 +1,5 @@
 
-export const port  = 8500;
+export const port  = 4500;
 
 export const EMAIL_SETTINGS = {
   host  : 'smtp.office365.com',
@@ -7,8 +7,8 @@ export const EMAIL_SETTINGS = {
   port  : 587, 
   tls   : {ciphers : 'SSLv3'},
   auth  : {
-    user  : 'alert@talkpathlive.com',//username
-    pass  : 'hifgix-1zofqo-jTpay1',//password
+    user  : '',//username
+    pass  : '',//password
   },
   pool: true,
   maxConnections: 3

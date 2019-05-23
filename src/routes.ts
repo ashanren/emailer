@@ -1,8 +1,9 @@
 
-import { FastifyRequest, FastifyReply, FastifyInstance } from "fastify";
-import { log } from "config/logging";
-import * as mail from "controllers/mail";
-import MailController from "controllers/MailController";
+//Modules
+import { FastifyInstance } from "fastify";
+//Custom Modules
+import { log }        from "./config/logging";
+import MailController from "./controllers/MailController";
 
 export default async(app: FastifyInstance) => {
   app.post('/mail/', MailController.send_mail);
@@ -21,8 +22,14 @@ export default async(app: FastifyInstance) => {
     log.warn("Unknown Put Route", (getRaw(request.raw)));
     reply.status(402).send('Forbidden');
   });
+
+  app.delete('*', async (request, reply) => {
+    log.warn("Unknown Delete Route", (getRaw(request.raw)));
+    reply.status(402).send('Forbidden');
+  });
 }
 
 function getRaw (raw: any) {
   return raw["originalUrl"];
 }
+
