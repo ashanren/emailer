@@ -29,7 +29,7 @@ export default async(app: FastifyInstance) => {
   });
 }
 
-function getRaw (raw: any) {
+const getRaw = (raw: any) => {
   return raw["originalUrl"];
 }
 

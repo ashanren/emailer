@@ -7,8 +7,8 @@ export const EMAIL_SETTINGS = {
   port  : 587, 
   tls   : {ciphers : 'SSLv3'},
   auth  : {
-    user  : '',//username
-    pass  : '',//password
+    user  : process.env.email_user || '',//username
+    pass  : process.env.email_pass || '',//password
   },
   pool: true,
   maxConnections: 3

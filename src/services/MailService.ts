@@ -16,8 +16,8 @@ export default class MailService {
         log.error(`Email Rejected to ${result.rejected.join}`);
         if (result.rejected.length === (body.to && body.to.length)) {
           log.error("All Emails were rejected");
-          return false;
         }
+        return false;
       }
       log.debug("Email result", result);
       return true;
