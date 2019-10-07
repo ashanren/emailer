@@ -10,7 +10,7 @@ export default class MailController extends BaseController {
     super();
   }
 
-  public static async send_mail(req: any, res: any) {
+  public static async send_mail(req: any, res: FastifyReply<ServerResponse>) {
     if (!await MailService.send_email(req.body)) {
       super.fail(res, "Failed to send Email");
     }

@@ -1,5 +1,5 @@
 
-export const port  = 4500;
+export const port  = Number(process.env.PORT) || 8500;
 
 export const EMAIL_SETTINGS = {
   host  : 'smtp.office365.com',
@@ -7,8 +7,8 @@ export const EMAIL_SETTINGS = {
   port  : 587, 
   tls   : {ciphers : 'SSLv3'},
   auth  : {
-    user  : process.env.email_user || '',//username
-    pass  : process.env.email_pass || '',//password
+    user  : process.env.USERNAME || '',//username
+    pass  : process.env.PASSWORD || '',//password
   },
   pool: true,
   maxConnections: 3
